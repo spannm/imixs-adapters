@@ -95,7 +95,6 @@ public class DatevService {
 	 * <li>type</li>
 	 * <li>name</li>
 	 * <li>$writeAccess</li>
-	 * <li>$readAccess</li>
 	 * </ul>
 	 * The method also updates the timer details of a running timer.
 	 * 
@@ -119,7 +118,8 @@ public class DatevService {
 		configuration.replaceItemValue("type", DOCUMENT_TYPE);
 		configuration.replaceItemValue("$snapshot.history", 1);
 		configuration.replaceItemValue("$writeAccess", "org.imixs.ACCESSLEVEL.MANAGERACCESS");
-		configuration.replaceItemValue("$readAccess", "org.imixs.ACCESSLEVEL.MANAGERACCESS");
+		// reset read access
+		configuration.replaceItemValue("$readAccess", "");
 
 		// save entity in new transaction
 		configuration = documentService.save(configuration);

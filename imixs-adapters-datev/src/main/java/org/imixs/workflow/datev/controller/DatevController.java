@@ -142,7 +142,6 @@ public class DatevController implements Serializable {
 	 * <li>type</li>
 	 * <li>name</li>
 	 * <li>$writeAccess</li>
-	 * <li>$readAccess</li>
 	 * </ul>
 	 * The method also updates the timer details of a running timer.
 	 * 
