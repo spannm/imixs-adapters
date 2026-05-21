@@ -30,12 +30,11 @@
 			<artifactId>imixs-marty</artifactId>
 		</dependency>
 
-
-		<!-- tiny java lib for iban/bic validation -->
+		<!-- java lib for iban/bic validation -->
 		<dependency>
 			<groupId>de.speedbanking</groupId>
 			<artifactId>iban-commons</artifactId>
-			<version>1.8.4</version>
+			<version>1.8.7</version>
 		</dependency>
 
 	</dependencies>
