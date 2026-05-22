@@ -2,18 +2,18 @@ package org.imixs.workflow.sepa.plugins;
 
 import java.util.logging.Logger;
 
-import jakarta.inject.Inject;
-
-import de.speedbanking.bic.Bic;
-import de.speedbanking.bic.InvalidBicException;
-import de.speedbanking.iban.Iban;
-import de.speedbanking.iban.InvalidIbanException;
 import org.eclipse.microprofile.config.inject.ConfigProperty;
 import org.imixs.workflow.ItemCollection;
 import org.imixs.workflow.engine.plugins.AbstractPlugin;
 import org.imixs.workflow.exceptions.PluginException;
 import org.imixs.workflow.faces.util.ResourceBundleHandler;
 import org.imixs.workflow.sepa.services.SepaWorkflowService;
+
+import de.speedbanking.bic.Bic;
+import de.speedbanking.bic.InvalidBicException;
+import de.speedbanking.iban.Iban;
+import de.speedbanking.iban.InvalidIbanException;
+import jakarta.inject.Inject;
 
 /**
  * The IBANBICPlugin validates the items dbtr.iban, dbtr.bic, cdtr.iban and
@@ -131,7 +131,8 @@ public class IBANBICPlugin extends AbstractPlugin {
      * Validates IBAN values stored in the given item names of the workitem.
      * <p>
      * iban-commons always tolerates spaces used to format an IBAN for readability
-     * (e.g. "DE44 5001 0517 5407 3249 31"), while tabs and other whitespace are never
+     * (e.g. "DE44 5001 0517 5407 3249 31"), while tabs and other whitespace are
+     * never
      * allowed.
      * <p>
      * In strict mode spaces are also rejected. In non-strict mode (default) all
