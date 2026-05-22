@@ -139,7 +139,7 @@ public class IBANBICPlugin extends AbstractPlugin {
      *
      * @throws InvalidIbanException if any IBAN value is invalid
      */
-    public void validateIBAN(ItemCollection workitem, String... itemNames) {
+    public void validateIBAN(ItemCollection workitem, String... itemNames) throws InvalidIbanException {
         for (String itemName : itemNames) {
             String iban = workitem.getItemValueString(itemName);
             if (iban.isEmpty()) {
@@ -152,7 +152,7 @@ public class IBANBICPlugin extends AbstractPlugin {
                 // Remove all whitespace before validation
                 iban = iban.replaceAll("\\s+", "");
             }
-            Iban.of(iban);
+            Iban.validate(iban);
         }
     }
 
@@ -163,7 +163,7 @@ public class IBANBICPlugin extends AbstractPlugin {
      *
      * @throws InvalidBicException if any BIC value is invalid
      */
-    public void validateBIC(ItemCollection workitem, String... itemNames) {
+    public void validateBIC(ItemCollection workitem, String... itemNames) throws InvalidBicException {
         for (String itemName : itemNames) {
             String bic = workitem.getItemValueString(itemName);
             if (bic.isEmpty()) {
@@ -172,7 +172,7 @@ public class IBANBICPlugin extends AbstractPlugin {
             if (!sepaValidationStrict) {
                 bic = bic.replaceAll("\\s+", "");
             }
-            Bic.of(bic);
+            Bic.validate(bic);
         }
     }
 
