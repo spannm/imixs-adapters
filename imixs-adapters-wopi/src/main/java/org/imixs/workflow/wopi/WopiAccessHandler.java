@@ -501,7 +501,11 @@ public class WopiAccessHandler {
         if (!wopiFileCache.endsWith("/")) {
             wopiFileCache = wopiFileCache + "/";
         }
-        return Paths.get(wopiFileCache + accessToken.hashCode() + "_" + filename);
+        // Sanitize filename to prevent path traversal attacks
+        // Extract only the filename, strip any path components like "../../"
+        String sanitizedFilename = Paths.get(filename).getFileName().toString();
+
+        return Paths.get(wopiFileCache + accessToken.hashCode() + "_" + sanitizedFilename);
     }
 
     /**
